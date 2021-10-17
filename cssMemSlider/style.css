@@ -1,38 +1,40 @@
+
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 body{
-  background-color: turquoise;
+  background-color:#acac05;
 }
 .wrapper{
   display: flex;
   flex-direction: column;
-  width: calc(100% - 110px);
-  height: 100vh;
+  width: calc(100% - 18.75rem);
   align-items: flex-end;
   margin: 0 auto;
 }
 .slider{
-  margin-top: 2%;
+  margin-top: 1%;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-  height: 80%;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  border-radius: 10px;
+  border-radius: 0.625rem;
+  margin-bottom: 1.5623rem;
+  box-shadow: 0 0 2rem sienna;
 }
 .slides{
   width: 400%;
-  height: 100%;
+  height: auto;
   display: flex;  
 }
 .slide{
   width: 25%;
-  transition: all .6s ease;
+  height: 75vh;
+  transition: all 1.2s ease-in-out;
 }
 .slide img{
   width: 100%;
@@ -42,20 +44,16 @@ body{
   display: flex;
 }
 .bar{
-  margin: 6px;
-  height: 12px;
-  width: 12px;
-  border-radius: 50%;
-  transition: all .4s ease;
-  background-color:#3399FF;
+padding: 0.5rem;
+cursor: pointer;
+transition: ease-in-out 0.6s all;
+transform: scale(1.1);
 }
 .bar:hover{
   cursor: pointer;
-  background-color: #ffffff;
+  background-color: #acac05;
+  transition: ease-in-out 0.6s all;
   transform: scale(1.1);
-}
-.bar input[type=radio]:checked + .dot {
-  background: #000000;
 }
 input[name="r"]{
   visibility: hidden;
@@ -63,13 +61,18 @@ input[name="r"]{
   height: 0;
 }
 .text-wraapper{
-  width: 400%;
+  width: 100%;
   display: flex;
   flex-direction: row;
 }
 .text{
-  display: block;
-  width: 25%;
+  display: none;
+  width: 100%;
+  font-size: 1.3em;
+  font-family: 'Kaushan Script', cursive;
+  color:sienna;
+  text-shadow: 0 0 0.5em sienna;
+  font-weight: 700;
 }
 
 #r1:checked ~ .wrapper .slider .slides .s1{
@@ -84,14 +87,102 @@ input[name="r"]{
 #r4:checked ~ .wrapper .slider .slides .s1{
   margin-left: -75%;
 }
+
+
+#r1:checked ~ .wrapper .descr .text-wrapper .text:nth-child(1){
+  display: block;
+  margin-left: 0;
+  animation: ease-in-out .8s text-style;
+}
+
+#r2:checked ~ .wrapper .descr .text-wrapper .text:nth-child(2){
+  display: block;
+  margin-left: 0;
+  animation: ease-in-out .8s text-style;
+}
+
+#r3:checked ~ .wrapper .descr .text-wrapper .text:nth-child(3){
+  display: block;
+  margin-left: 0;
+  animation: ease-in-out .8s text-style;
+}
+
+#r4:checked ~ .wrapper .descr .text-wrapper .text:nth-child(4){
+  display: block;
+  margin-left: 0;
+  animation: ease-in-out .8s text-style;
+}
 .descr{
-  width: calc(100% - 110px);
+  width: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
+  align-items:stretch;
   overflow: hidden;
+}
+
+@keyframes text-style{
+  from {
+    transform: translateY(-55%);
+    opacity: 0;
+    font-size: 0.2em;
+    color:sienna
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+    font-size: 0.8em;
+    color:olivedrab;
+  }
+}
+.circle{
+  display: block;
+  background-color: sienna;
+  border-radius: 50%;
+  width: 1.2em;
+  height: 1.2em;
+  transition: ease-in-out .4s all;
+  transform: scale3d(1.1);
+  border: 0.2em solid sienna;
+}
+.circle:hover{
+  background-color: olivedrab;
+  border: olivedrab;
+  transition: ease-in-out 0.6s all;
+  transform: scale(1.3);
+}
+.circle:active{
+  background-color: blue;
+  border: 0.5em solid red;
+  transition: ease-in-out 0.6s all;
+  transform: scale(1.2);
+}
+#r1:checked ~ .wrapper .descr .navigation .bar .c1{
+  background-color: olivedrab;
+  border: 0.2em solid sienna;
+  transition: ease-in-out 0.6s all che;
+}
+#r2:checked ~ .wrapper .descr .navigation .bar .c2{
+  background-color: olivedrab;
+  border: 0.2em solid sienna;
+  transition: ease-in-out 0.6s all che;
+}
+#r3:checked ~ .wrapper .descr .navigation .bar .c3{
+  background-color: olivedrab;
+  border: 0.2em solid sienna;
+  transition: ease-in-out 0.6s all che;
+}
+#r4:checked ~ .wrapper .descr .navigation .bar .c4{
+  background-color: olivedrab;
+  border: 0.2em solid sienna;
+  transition: ease-in-out 0.6s all che;
+}
+@keyframes che {
+  from{
+    transform: scale(1.3);
+  }
+  to{
+    transform: scale(1.0);
+  }
 }
